@@ -3,14 +3,20 @@ package system.view;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import system.controller.PanelController;
+import system.controller.SectorBaseController;
 
 /**
  * @author matth
  */
 public class MenuPrincipal extends javax.swing.JPanel {
-
+    SectorBaseController sectorController = new SectorBaseController();
+    PanelController panelController = new PanelController();
+    javax.swing.JPanel cambioPanel;
+    
     public MenuPrincipal() {
-        initComponents();        
+        initComponents();
+        llenarDatos();
     }
     
     @SuppressWarnings("unchecked")
@@ -25,13 +31,13 @@ public class MenuPrincipal extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txt_TInventario = new javax.swing.JTextField();
-        txt_TCosto = new javax.swing.JTextField();
-        txt_PInventario = new javax.swing.JTextField();
-        txt_PCosto = new javax.swing.JTextField();
-        txt_EInventario = new javax.swing.JTextField();
-        txt_ECosto = new javax.swing.JTextField();
-        txt_SInventario = new javax.swing.JTextField();
-        txt_SCosto = new javax.swing.JTextField();
+        txt_CInventario = new javax.swing.JTextField();
+        txt_TProduccion = new javax.swing.JTextField();
+        txt_CProduccion = new javax.swing.JTextField();
+        txt_TEmpaquetado = new javax.swing.JTextField();
+        txt_CEmpaquetado = new javax.swing.JTextField();
+        txt_TSalida = new javax.swing.JTextField();
+        txt_CSalida = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -79,16 +85,16 @@ public class MenuPrincipal extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txt_PInventario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txt_EInventario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txt_SInventario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txt_TProduccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_TEmpaquetado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_TSalida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txt_TInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txt_TCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_PCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_ECosto, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_SCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_CInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_CProduccion, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_CEmpaquetado, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_CSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(91, 91, 91))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,23 +120,23 @@ public class MenuPrincipal extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txt_TInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_TCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_CInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txt_PInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_PCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_TProduccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_CProduccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txt_EInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_ECosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_TEmpaquetado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_CEmpaquetado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_SInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_SCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txt_TSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_CSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(46, 46, 46))
@@ -141,9 +147,12 @@ public class MenuPrincipal extends javax.swing.JPanel {
         validarCampos();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    int CEmpaquetado, CInventario, CProduccion, CSalida,         
+        TEmpaquetado, TInventario, TProduccion, TSalida;
+    
     public void validarCampos(){
         boolean camposValidos = true;
-        JTextField[] campos = {txt_ECosto, txt_EInventario, txt_PCosto, txt_PInventario, txt_SCosto, txt_SInventario, txt_TCosto, txt_TInventario};
+        JTextField[] campos = {txt_CEmpaquetado, txt_TEmpaquetado, txt_CProduccion, txt_TProduccion, txt_CSalida, txt_TSalida, txt_CInventario, txt_TInventario};
         for (JTextField campo : campos) {
             if (campo.getText().trim().isEmpty()) {
                 camposValidos = false;
@@ -152,7 +161,42 @@ public class MenuPrincipal extends javax.swing.JPanel {
         }
         if (!camposValidos) {
             JOptionPane.showMessageDialog(null, "Por favor, llene todos los campos.");
+        } else {
+            if(verificarEnteros() != false){
+                sectorController.setData(CEmpaquetado, CInventario, CProduccion, CSalida, TEmpaquetado, TInventario, TProduccion, TSalida);                
+                cambioPanel = panelController.getSimulacion();
+                panelController.getPracticaMain().getVentanaBase().cambiarPaneles(cambioPanel);
+            }
         }
+    }
+    
+    private boolean verificarEnteros(){
+        boolean verificar = true;
+        try{
+            CEmpaquetado = Integer.parseInt(txt_CEmpaquetado.getText());
+            CInventario = Integer.parseInt(txt_CInventario.getText());
+            CProduccion = Integer.parseInt(txt_CProduccion.getText());
+            CSalida = Integer.parseInt(txt_CSalida.getText());
+            TEmpaquetado = Integer.parseInt(txt_TEmpaquetado.getText());
+            TInventario = Integer.parseInt(txt_TInventario.getText());
+            TProduccion = Integer.parseInt(txt_TProduccion.getText());
+            TSalida = Integer.parseInt(txt_TSalida.getText());
+        } catch(NumberFormatException  e) {
+            verificar = false;
+            JOptionPane.showMessageDialog(null, "El valor ingresado no es un número entero válido.");                
+        }
+        return verificar;
+    }
+    
+    private void llenarDatos(){
+        txt_CEmpaquetado.setText("1");
+        txt_TEmpaquetado.setText("6");
+        txt_CProduccion.setText("1");
+        txt_TProduccion.setText("4");
+        txt_CSalida.setText("1");
+        txt_TSalida.setText("8");
+        txt_CInventario.setText("1");
+        txt_TInventario.setText("2");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -164,13 +208,13 @@ public class MenuPrincipal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField txt_ECosto;
-    private javax.swing.JTextField txt_EInventario;
-    private javax.swing.JTextField txt_PCosto;
-    private javax.swing.JTextField txt_PInventario;
-    private javax.swing.JTextField txt_SCosto;
-    private javax.swing.JTextField txt_SInventario;
-    private javax.swing.JTextField txt_TCosto;
+    private javax.swing.JTextField txt_CEmpaquetado;
+    private javax.swing.JTextField txt_CInventario;
+    private javax.swing.JTextField txt_CProduccion;
+    private javax.swing.JTextField txt_CSalida;
+    private javax.swing.JTextField txt_TEmpaquetado;
     private javax.swing.JTextField txt_TInventario;
+    private javax.swing.JTextField txt_TProduccion;
+    private javax.swing.JTextField txt_TSalida;
     // End of variables declaration//GEN-END:variables
 }
