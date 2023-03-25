@@ -7,13 +7,13 @@ package system.beam;
 public class SectorBase {
     private int tiempo;
     private int costo;
-    private double totalSector;
+    private int totalSector;
     private String color;
 
     public SectorBase() {
     }    
 
-    public SectorBase(int tiempo, int costo, double totalSector, String color) {
+    public SectorBase(int tiempo, int costo, int totalSector, String color) {
         this.tiempo = tiempo;
         this.costo = costo;
         this.totalSector = totalSector;
@@ -36,11 +36,11 @@ public class SectorBase {
         this.costo = costo;
     }
 
-    public double getTotalSector() {
+    public int getTotalSector() {
         return totalSector;
     }
 
-    public void setTotalSector(double totalSector) {
+    public void setTotalSector(int totalSector) {
         this.totalSector = totalSector;
     }
 

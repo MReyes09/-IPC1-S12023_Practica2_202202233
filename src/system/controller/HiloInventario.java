@@ -15,16 +15,20 @@ public class HiloInventario extends Thread{
     private static int cantidadPelota = 0;
     private JLabel labelIn;
     private JPanel panelIn;
+    private JLabel labelPr;
+    private JPanel panelPr;
     private JPanel panel;
     private int x = 70;
     private int y = 55; 
     private int salidaX = 480;
     private int salidaY = 240;
 
-    public HiloInventario(JLabel labelIn, JPanel pI, JPanel pS) {
+    public HiloInventario(JLabel labelIn, JPanel pI, JPanel pS, JLabel lP, JPanel pP) {
         this.labelIn = labelIn;
         this.panelIn = pI;
         this.panel = pS;
+        this.labelPr = lP;
+        this.panelPr = pP;
     }
     
     //INSTANCIAS
@@ -34,7 +38,7 @@ public class HiloInventario extends Thread{
     public void run(){
         cantidadPelota++;
         labelIn.setText("INVENTARIO: " + cantidadPelota);
-        Circulo cInventario = new Circulo(panelIn.getGraphics(),x,y,"#0101DF",45,45);        
+        Circulo cInventario = new Circulo(panelIn.getGraphics(),x,y,"#0101DF",45,45);
         int tiempoEspera = 1000*inventario.getTiempo();
         
         try {
@@ -44,7 +48,7 @@ public class HiloInventario extends Thread{
             if(cantidadPelota == 0){
                 panelIn.repaint();
             }
-            while(salidaY > 174){
+            while(salidaY > 180){
                 Circulo cInicial = new Circulo(panel.getGraphics(),salidaX,salidaY,"#0101DF");
                 salidaY-=2;
                 Thread.sleep(15);
@@ -52,9 +56,10 @@ public class HiloInventario extends Thread{
             }
             salidaX = 480;
             salidaY = 240;
+            HiloProduccion hiloProduccion = new HiloProduccion(labelPr, panelPr, panel);
+            hiloProduccion.start();
         } catch (InterruptedException ex) {
             Logger.getLogger(HiloInventario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
 }

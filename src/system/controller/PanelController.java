@@ -3,7 +3,6 @@ package system.controller;
 
 import system.system.PracticaMain;
 import system.view.MenuPrincipal;
-import system.view.Reporte;
 import system.view.Simulacion;
 
 /**
@@ -26,10 +25,5 @@ public class PanelController {
     public Simulacion getSimulacion(){
         Simulacion simulacion = new Simulacion();
         return simulacion;
-    }
-    
-    public Reporte getReporte(){
-        Reporte reporte = new Reporte();
-        return reporte;
     }
 }

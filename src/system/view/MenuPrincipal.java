@@ -147,7 +147,7 @@ public class MenuPrincipal extends javax.swing.JPanel {
         validarCampos();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    int CEmpaquetado, CInventario, CProduccion, CSalida,         
+    static int CEmpaquetado, CInventario, CProduccion, CSalida,         
         TEmpaquetado, TInventario, TProduccion, TSalida;
     
     public void validarCampos(){

@@ -1,8 +1,9 @@
 
 package system.view;
 
-import system.controller.HiloInventario;
+import system.controller.Cronometro;
 import system.controller.PanelController;
+import system.controller.Reporte;
 import system.controller.SectorBaseController;
 
 /**
@@ -26,13 +27,20 @@ public class Simulacion extends javax.swing.JPanel {
         btn_Volver = new javax.swing.JButton();
         btn_Reporte = new javax.swing.JButton();
         panelS = new javax.swing.JPanel();
-        label1 = new javax.swing.JLabel();
         panelInventario = new javax.swing.JPanel();
         inventario = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         inicio = new javax.swing.JLabel();
-        panelInventario1 = new javax.swing.JPanel();
-        inventario1 = new javax.swing.JLabel();
+        panelProduccion = new javax.swing.JPanel();
+        Produccion = new javax.swing.JLabel();
+        panelEmpaquetado = new javax.swing.JPanel();
+        Empaquetado = new javax.swing.JLabel();
+        panelSalida = new javax.swing.JPanel();
+        Salida = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        salida = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lbl_Cronometro = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -58,8 +66,6 @@ public class Simulacion extends javax.swing.JPanel {
         });
 
         panelS.setBackground(new java.awt.Color(204, 255, 204));
-
-        label1.setText("Tiempo:");
 
         panelInventario.setBackground(new java.awt.Color(153, 255, 255));
         panelInventario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -87,63 +93,147 @@ public class Simulacion extends javax.swing.JPanel {
 
         inicio.setText("30");
 
-        panelInventario1.setBackground(new java.awt.Color(102, 255, 102));
-        panelInventario1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelProduccion.setBackground(new java.awt.Color(102, 255, 102));
+        panelProduccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        inventario1.setText("PRODUCCIÓN: 0");
+        Produccion.setText("PRODUCCIÓN: 0");
 
-        javax.swing.GroupLayout panelInventario1Layout = new javax.swing.GroupLayout(panelInventario1);
-        panelInventario1.setLayout(panelInventario1Layout);
-        panelInventario1Layout.setHorizontalGroup(
-            panelInventario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelInventario1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelProduccionLayout = new javax.swing.GroupLayout(panelProduccion);
+        panelProduccion.setLayout(panelProduccionLayout);
+        panelProduccionLayout.setHorizontalGroup(
+            panelProduccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelProduccionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(inventario1, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                .addComponent(Produccion, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        panelInventario1Layout.setVerticalGroup(
-            panelInventario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelInventario1Layout.createSequentialGroup()
+        panelProduccionLayout.setVerticalGroup(
+            panelProduccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelProduccionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(inventario1)
+                .addComponent(Produccion)
                 .addContainerGap(110, Short.MAX_VALUE))
         );
+
+        panelEmpaquetado.setBackground(new java.awt.Color(255, 153, 255));
+        panelEmpaquetado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Empaquetado.setText("EMPAQUETADO: 0");
+
+        javax.swing.GroupLayout panelEmpaquetadoLayout = new javax.swing.GroupLayout(panelEmpaquetado);
+        panelEmpaquetado.setLayout(panelEmpaquetadoLayout);
+        panelEmpaquetadoLayout.setHorizontalGroup(
+            panelEmpaquetadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEmpaquetadoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Empaquetado, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelEmpaquetadoLayout.setVerticalGroup(
+            panelEmpaquetadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEmpaquetadoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Empaquetado)
+                .addContainerGap(110, Short.MAX_VALUE))
+        );
+
+        panelSalida.setBackground(new java.awt.Color(204, 153, 255));
+        panelSalida.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Salida.setText("SALIDA: 0");
+
+        javax.swing.GroupLayout panelSalidaLayout = new javax.swing.GroupLayout(panelSalida);
+        panelSalida.setLayout(panelSalidaLayout);
+        panelSalidaLayout.setHorizontalGroup(
+            panelSalidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSalidaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Salida, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelSalidaLayout.setVerticalGroup(
+            panelSalidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSalidaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Salida)
+                .addContainerGap(110, Short.MAX_VALUE))
+        );
+
+        jLabel3.setText("FINAL");
+
+        salida.setText("0");
+
+        jLabel1.setText("Tiempo:");
+
+        lbl_Cronometro.setText("00:00");
 
         javax.swing.GroupLayout panelSLayout = new javax.swing.GroupLayout(panelS);
         panelS.setLayout(panelSLayout);
         panelSLayout.setHorizontalGroup(
             panelSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(17, 17, 17)
                 .addGroup(panelSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSLayout.createSequentialGroup()
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(242, 242, 242))
+                        .addComponent(salida)
+                        .addGap(14, 14, 14))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(38, 38, 38)
+                .addGroup(panelSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSLayout.createSequentialGroup()
                         .addGroup(panelSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(panelInventario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panelInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelSLayout.createSequentialGroup()
+                                .addComponent(panelSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                                .addComponent(panelInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelSLayout.createSequentialGroup()
+                                .addComponent(panelEmpaquetado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(panelProduccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(110, 110, 110))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(panelSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSLayout.createSequentialGroup()
                                 .addComponent(inicio)
                                 .addGap(14, 14, 14))
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(29, 29, 29))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_Cronometro, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(257, 257, 257))
         );
         panelSLayout.setVerticalGroup(
             panelSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSLayout.createSequentialGroup()
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panelInventario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inicio)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(panelInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(panelSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lbl_Cronometro))
+                .addGap(12, 12, 12)
+                .addGroup(panelSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelProduccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelEmpaquetado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(panelSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelSLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(inicio))
+                            .addGroup(panelSLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(salida)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                        .addComponent(panelInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelSLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panelSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(28, 28, 28))
         );
 
@@ -175,8 +265,8 @@ public class Simulacion extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_ReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ReporteActionPerformed
-        cambioPanel = panelController.getReporte();
-        panelController.getPracticaMain().getVentanaBase().cambiarPaneles(cambioPanel);
+        Reporte reporte = new Reporte();
+        reporte.crearReporte();
     }//GEN-LAST:event_btn_ReporteActionPerformed
 
     private void btn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverActionPerformed
@@ -186,26 +276,38 @@ public class Simulacion extends javax.swing.JPanel {
 
     private void btn_SimularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SimularActionPerformed
         //INSTANCIA DEL HILO PRINCIPAL
+        
+        lbl_Cronometro.setText("00:00");
+        Cronometro resetTime = new Cronometro();
+        resetTime.resetTime();
+        Cronometro cronometro = new Cronometro(lbl_Cronometro);
         SectorBaseController hiloInicio = new SectorBaseController(panelS,inicio, 
-                inventario, panelInventario
+                inventario, panelInventario, Produccion ,panelProduccion,
+                Empaquetado, panelEmpaquetado, Salida, panelSalida, salida
         );
-//        HiloInventario hiloInventario = new HiloInventario(inventario);
         hiloInicio.start();
-//        hiloInventario.start();
+        cronometro.start();
     }//GEN-LAST:event_btn_SimularActionPerformed
-    
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Empaquetado;
+    private javax.swing.JLabel Produccion;
+    private javax.swing.JLabel Salida;
     private javax.swing.JButton btn_Reporte;
     private javax.swing.JButton btn_Simular;
     private javax.swing.JButton btn_Volver;
     private javax.swing.JLabel inicio;
     private javax.swing.JLabel inventario;
-    private javax.swing.JLabel inventario1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel label1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lbl_Cronometro;
+    private javax.swing.JPanel panelEmpaquetado;
     private javax.swing.JPanel panelInventario;
-    private javax.swing.JPanel panelInventario1;
+    private javax.swing.JPanel panelProduccion;
     private javax.swing.JPanel panelS;
+    private javax.swing.JPanel panelSalida;
+    private javax.swing.JLabel salida;
     // End of variables declaration//GEN-END:variables
 }
