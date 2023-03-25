@@ -3,22 +3,27 @@ package system.controller;
 
 import system.system.PracticaMain;
 import system.view.MenuPrincipal;
-import system.view.VentanaBase;
+import system.view.Simulacion;
 
 /**
  * @author matth
  */
 
 public class PanelController {
-    private MenuPrincipal menuPrincipal = new MenuPrincipal();
-    private PracticaMain practicaMain = new PracticaMain();
     
     //control de estancias para los paneles
     public PracticaMain getPracticaMain(){
+        PracticaMain practicaMain = new PracticaMain();
         return practicaMain;
     }
     
     public MenuPrincipal getMenuPrincipal(){
+        MenuPrincipal menuPrincipal = new MenuPrincipal();
         return menuPrincipal;
+    }
+    
+    public Simulacion getSimulacion(){
+        Simulacion simulacion = new Simulacion();
+        return simulacion;
     }
 }
